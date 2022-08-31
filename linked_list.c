@@ -75,12 +75,9 @@ int delete_all_node (user_data *initial_node)
   user_data *delete_node;
   user_data *next_delete_node;
 
-  for (delete_node = initial_node; ; delete_node = next_delete_node) {
+  for (delete_node = initial_node; next_delete_node != NULL  ; delete_node = next_delete_node) {
     next_delete_node = delete_node->next_user;
     free(delete_node); 
-    if (next_delete_node == NULL) {
-      break;
-    }
   }
 
   printf("completed delete all\n");
